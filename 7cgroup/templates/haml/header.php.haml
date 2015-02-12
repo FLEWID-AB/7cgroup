@@ -1,0 +1,31 @@
+%aside.right-off-canvas-menu
+	%ul#off-canvas-menu-container.off-canvas-list
+		%li
+			%label Foundation
+		%li
+			%a{:href => "#"} The Psychohistorians
+		%li
+			%a{:href => "#"} ...
+
+:plain
+	<section class="main-section">
+
+%header.fixed
+	%nav.top-bar{"data-topbar" => ""}
+		%ul#logo.title-area
+			%li.name
+				%h1
+					%a{:href => "<?php echo esc_url(home_url()); ?>"}
+						<?php bloginfo('name'); ?>
+			%li.toggle-topbar.menu-icon
+				%a{:href => "#"}
+					%span
+		%section#top-menu.top-bar-section
+			= php_if "has_nav_menu('primary_navigation')" do
+				= php "wp_nav_menu(array('theme_location' => 'primary_navigation', 'menu_class' => 'right'));"
+
+		%section#off_canvas.top-bar-section.closed
+			%ul.right
+				%li
+					%a#toggle-canvas-menu{href: "#"}
+						%i.fa.fa-bars

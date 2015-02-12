@@ -1,0 +1,64 @@
+:php
+	/*
+	Template Name: Index Template
+	*/
+
+:php
+	$args = array(
+	'post_parent' => $post->ID,
+	'post_type'   => 'page', 
+	'posts_per_page' => -1,
+	'orderby' => 'menu_order',
+	'order' => 'ASC',
+	'post_status' => 'publish'
+	);
+	$children = get_children($args);
+
+/ LOOP THROUGH ALL THE CHILDRENS AS THEY WILL MAKE THE PAGE
+= php_if "count($children) > 0" do
+	= php "foreach((array) $children as $child_id => $child ){"
+	= php_if "get_field('page-type', $child->ID) == 'slider'" do
+		= php "$slider_items = get_field('slider', $child->ID)"
+		= php_if "count($slider_items) > 0" do
+			.slider
+				= php "foreach( $slider_items as $image ):"
+				= php "$background_image = $image['sizes']['xxl']"
+				.full-size-background{style: "background-image: url(#{php_echo '$background_image'})"}
+					.item
+						%h3
+							= php_echo "$image['title']"
+
+						= php_if "$image['description']" do
+							%p
+								= php_echo "$image['description']"
+						= php "$url = get_post_meta($image['id'],'_www',true)"
+						= php_if "$url" do
+							%a.button.tiny.radius{href: "#{php_echo '$url'}"}
+								Read more
+				= php "endforeach;"
+	= php "}"
+
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+:plain
+	</div>
+	<a class="exit-off-canvas"></a>

@@ -1,0 +1,55 @@
+.banner { }
+nav {
+	a {
+		text-transform: uppercase;
+		letter-spacing: 1px;
+	}
+}
+
+.top-bar-section, #logo {
+	// position: absolute;
+	// right: -200px;
+	// visibility: hidden;
+	@include transition(all 0.8s);
+	opacity: 1;
+	&.closed {
+		opacity: 0;
+	}
+	&#off_canvas {
+		position: fixed;
+		right: 0;
+		i.fa {
+			font-size: 2rem;
+		}
+	}
+}
+
+#toggle-canvas-menu {
+	&.active {
+		position: fixed;
+		top: 0;
+		right: 0;
+		left: auto;
+		z-index: 99;
+	}
+}
+
+#off_canvas {
+	@include transition(all 0.6s);
+	li {
+		a {
+			padding-left: 0;
+			i {
+				background: rgba(0,0,0, 0.5);
+				border-radius: $global-radius;
+				padding: 7px 10px;
+			}
+		}
+	}
+}
+
+#off-canvas-menu-container {
+	// &.active {
+	// 	overflow: scroll;
+	// }
+}

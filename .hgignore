@@ -1,0 +1,8 @@
+syntax:glob
+7cgroup/assets/scss/bourbon/**
+7cgroup/node_modules/**
+*.git
+
+syntax:regexp
+.*node_modules.*
+.*git.*

@@ -1,0 +1,36 @@
+.full-size-background {
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+	h3 {
+		color: #fff;
+	}
+	.item {
+		position: absolute;
+		bottom: $column-gutter;
+		left: $column-gutter;
+		.button {
+			margin-bottom: 0;
+		}
+	}
+}
+
+.slick-prev, .slick-next {
+	position: absolute;
+	top: 50%;
+	color: #fff;
+	opacity: 0.75;
+	font-size: 3rem;
+	cursor: pointer;
+	&:hover {
+		opacity: 1;
+	}
+}
+
+.slick-prev {
+	left: $column-gutter;
+}
+
+.slick-next {
+	right: $column-gutter;
+}
